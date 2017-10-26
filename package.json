@@ -1,0 +1,60 @@
+{
+  "name": "@firstandthird/ab-test",
+  "version": "1.0.0",
+  "description": "Simple A/B testing using Domodule and Micro Metrics",
+  "main": "dist/ab-test.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "scriptkit",
+    "build": "scriptkit build",
+    "dev": "scriptkit dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "scriptkit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstandthird/ab-test.git"
+  },
+  "keywords": [
+    "browser",
+    "menu",
+    "mobile"
+  ],
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/ab-test/issues"
+  },
+  "homepage": "https://github.com/firstandthird/ab-test#readme",
+  "devDependencies": {
+    "eslint-config-firstandthird": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "scriptkit": "^0.3.0"
+  },
+  "scriptkit": {
+    "test": {
+      "enabled": false
+    },
+    "files": {
+      "dist/ab-test.js": "index.js"
+    },
+    "scripts": {
+      "babel": {
+        "exclude": [
+          "node_modules/tape-rollup/*"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "firstandthird",
+    "env": {
+      "browser": true
+    }
+  },
+  "dependencies": {
+    "domassist": "^1.9.1",
+    "domodule": "^5.1.3",
+    "micro-metrics-browser": "^1.2.0"
+  }
+}
