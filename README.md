@@ -15,4 +15,7 @@ Simple A/B Testing library using [Domodule](https://github.com/firstandthird/dom
 </body>
 ```
 
-It needs to receive `data-module-url` as an option or have `metricsEndpoint` defined on the `window` object.
+It needs to receive some options or they should be defined on the window object:
+
+* `url`: `data-module-url` as an option or have `metricsEndpoint` defined on the `window` object.
+* `session`: `data-module-session-id` as an option or have `metricsSession` defined on the `window` object.
