@@ -8,7 +8,7 @@
     "start": "scriptkit",
     "build": "scriptkit build",
     "dev": "scriptkit dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cat test/ab-test.test.dist.js | tape-run --static . --browser phantomjs --render tap-spec",
     "prepublish": "scriptkit"
   },
   "repository": {
@@ -29,14 +29,16 @@
   "devDependencies": {
     "eslint-config-firstandthird": "^4.0.1",
     "eslint-plugin-import": "^2.8.0",
-    "scriptkit": "^0.3.0"
+    "phantomjs-prebuilt": "2.1.14",
+    "scriptkit": "^0.3.0",
+    "tap-spec": "^4.1.1",
+    "tape-rollup": "^4.6.4",
+    "tape-run": "^3.0.0"
   },
   "scriptkit": {
-    "test": {
-      "enabled": false
-    },
     "files": {
-      "dist/ab-test.js": "index.js"
+      "dist/ab-test.js": "index.js",
+      "test/ab-test.test.dist.js": "test/ab-test.test.js"
     },
     "scripts": {
       "babel": {

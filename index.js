@@ -16,9 +16,14 @@ export default class ABTest extends Domodule {
     }
 
     const url = this.options.url || window.metricsEndpoint;
+    this.sessionId = this.options.sessionId || window.metricsSession;
 
     if (!url) {
       throw new Error('Metrics URL not present as option nor within metricsEndpoint');
+    }
+
+    if (!this.sessionId) {
+      throw new Error('Metrics Session not present as option nor within metricsSession');
     }
 
     // If no action is setup, assume click on el
@@ -31,7 +36,7 @@ export default class ABTest extends Domodule {
   }
 
   track(type) {
-    this.mm.conversion(this.options.name, type, this.options.value);
+    this.mm.conversion(this.options.name, type, this.options.value, this.sessionId);
   }
 
   success() {
