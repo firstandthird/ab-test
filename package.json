@@ -1,0 +1,62 @@
+{
+  "name": "@firstandthird/ab-test",
+  "version": "1.0.0",
+  "description": "Simple A/B testing using Domodule and Micro Metrics",
+  "main": "dist/ab-test.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "scriptkit",
+    "build": "scriptkit build",
+    "dev": "scriptkit dev",
+    "test": "cat test/ab-test.test.dist.js | tape-run --static . --browser phantomjs --render tap-spec",
+    "prepublish": "scriptkit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstandthird/ab-test.git"
+  },
+  "keywords": [
+    "browser",
+    "menu",
+    "mobile"
+  ],
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/ab-test/issues"
+  },
+  "homepage": "https://github.com/firstandthird/ab-test#readme",
+  "devDependencies": {
+    "eslint-config-firstandthird": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "phantomjs-prebuilt": "2.1.14",
+    "scriptkit": "^0.3.0",
+    "tap-spec": "^4.1.1",
+    "tape-rollup": "^4.6.4",
+    "tape-run": "^3.0.0"
+  },
+  "scriptkit": {
+    "files": {
+      "dist/ab-test.js": "index.js",
+      "test/ab-test.test.dist.js": "test/ab-test.test.js"
+    },
+    "scripts": {
+      "babel": {
+        "exclude": [
+          "node_modules/tape-rollup/*"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "firstandthird",
+    "env": {
+      "browser": true
+    }
+  },
+  "dependencies": {
+    "domassist": "^1.9.1",
+    "domodule": "^5.1.3",
+    "micro-metrics-browser": "^1.2.0"
+  }
+}
