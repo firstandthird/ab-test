@@ -819,13 +819,19 @@ var ABTest = function (_Domodule) {
     }
   }, {
     key: 'track',
-    value: function track(type) {
-      this.mm.conversion(this.options.name, type, this.options.value, this.sessionId);
+    value: function track(type, data) {
+      this.mm.conversion(this.options.name, type, this.options.value, this.sessionId, data);
     }
   }, {
     key: 'success',
-    value: function success() {
-      this.track('success');
+    value: function success(el, event, options) {
+      var data = void 0;
+
+      if (options && Object.keys(options).length) {
+        data = options;
+      }
+
+      this.track('success', data);
     }
   }, {
     key: 'required',
@@ -8279,6 +8285,22 @@ test('Success should track a success conversion', function (assert) {
   assert.equal(call[1], 'success', 'Should track a success');
   assert.equal(call[2], 'value', 'Value should be the given one');
   assert.equal(call[3], 'session', 'Session Id should be the given one');
+  assert.equal(_typeof(call[4]), 'undefined', 'Only 4 arguments');
+  assert.end();
+});
+
+test('Success should be able to pass the data if third argument is an object', function (assert) {
+  setup();
+
+  instance.success(undefined, undefined, { test: 'text' });
+  var call = calls[1];
+
+  assert.equal(call[0], 'name', 'Name should be the given one');
+  assert.equal(call[1], 'success', 'Should track a success');
+  assert.equal(call[2], 'value', 'Value should be the given one');
+  assert.equal(call[3], 'session', 'Session Id should be the given one');
+  assert.deepEqual(call[4], { test: 'text' }, 'Data should be passed');
+  assert.equal(_typeof(call[4]), 'object', '5 arguments');
   assert.end();
 });
 

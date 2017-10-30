@@ -6,8 +6,10 @@ Simple A/B Testing library using [Domodule](https://github.com/firstandthird/dom
 
 ```html
 <body>
+  <!-- Additional given data will be passed along too -->
   <div data-module="ABTest" data-module-name="backgroundColor" data-module-value="red">
-    <a href="" data-action="success">Test</a>
+    <a href="" data-action="success" data-action-text="Test">Test</a>
+    <a href="" data-action="success" data-action-text="Foo">Foo</a>
   </div>
 
   <!-- If action is not defined, assume click on element -->

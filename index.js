@@ -35,12 +35,18 @@ export default class ABTest extends Domodule {
     this.track('impression');
   }
 
-  track(type) {
-    this.mm.conversion(this.options.name, type, this.options.value, this.sessionId);
+  track(type, data) {
+    this.mm.conversion(this.options.name, type, this.options.value, this.sessionId, data);
   }
 
-  success() {
-    this.track('success');
+  success(el, event, options) {
+    let data;
+
+    if (options && Object.keys(options).length) {
+      data = options;
+    }
+
+    this.track('success', data);
   }
 }
 

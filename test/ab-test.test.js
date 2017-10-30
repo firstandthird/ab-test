@@ -101,6 +101,22 @@ test('Success should track a success conversion', assert => {
   assert.equal(call[1], 'success', 'Should track a success');
   assert.equal(call[2], 'value', 'Value should be the given one');
   assert.equal(call[3], 'session', 'Session Id should be the given one');
+  assert.equal(typeof call[4], 'undefined', 'Only 4 arguments');
+  assert.end();
+});
+
+test('Success should be able to pass the data if third argument is an object', assert => {
+  setup();
+
+  instance.success(undefined, undefined, { test: 'text' });
+  const call = calls[1];
+
+  assert.equal(call[0], 'name', 'Name should be the given one');
+  assert.equal(call[1], 'success', 'Should track a success');
+  assert.equal(call[2], 'value', 'Value should be the given one');
+  assert.equal(call[3], 'session', 'Session Id should be the given one');
+  assert.deepEqual(call[4], { test: 'text' }, 'Data should be passed');
+  assert.equal(typeof call[4], 'object', '5 arguments');
   assert.end();
 });
 
