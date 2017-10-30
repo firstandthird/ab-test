@@ -1,6 +1,6 @@
 {
   "name": "@firstandthird/ab-test",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple A/B testing using Domodule and Micro Metrics",
   "main": "dist/ab-test.js",
   "module": "index.js",
