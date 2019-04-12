@@ -1,8 +1,22 @@
-# AB Test
+# AB Test ![npm](https://img.shields.io/npm/v/@firstandthird/ab-test.svg)
 
 Simple A/B Testing library using [Domodule](https://github.com/firstandthird/domodule) and [Micro Metrics](https://github.com/firstandthird/micro-metrics-browser)
 
+## Installation
+
+```sh
+npm install @firstandthird/ab-test
+```
+
 ## Usage
+
+### JavaScript
+
+```js
+import '@firstandthird/ab-test'
+```
+
+### HTML
 
 ```html
 <body>
